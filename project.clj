@@ -14,6 +14,8 @@
                               {:compiler
                                {:output-dir (str "resources/public/js/" (name opt))
                                 :output-to (str "resources/public/js/" (name opt) ".js")
+                                ;; Withtout this line, :closure-defines don't work with :optimizations :none
+                                :main 'goog-define-bug.core
                                 :optimizations opt
                                 :closure-defines {'goog-define-bug.core/opt-type (name opt)}}
                                 :id (name opt)
